@@ -1,4 +1,5 @@
-http = require('http');
+const http = require('http');
+const fs = require('fs');
 
 server = http.createServer((req, res) => {
     console.log('server run');
@@ -34,6 +35,7 @@ server = http.createServer((req, res) => {
     // res.statusCode = 200;
     // res.setHeader('Content-Type', 'application/json');
     // res.setHeader('yo', 'bacon');
+    // *the same
     res.writeHead(200, {
         'Content-Type': 'text/html',
         'yo': 'bacon'
@@ -44,13 +46,16 @@ server = http.createServer((req, res) => {
     // since headers come before the body in HTTP responses.
 
     // *the same
-    // res.end('<html><body><h1>Hello, World!</h1></body></html>');
-    res.write('<html>');
-    res.write('<body>');
-    res.write('<h1>Hello, World!</h1>');
-    res.write('</body>');
-    res.write('</html>');
-    res.end();
+    res.end('<html><body><h1>Hello, World!</h1></body></html>');
+    // *the same
+    // res.write('<html>');
+    // res.write('<body>');
+    // res.write('<h1>Hello, World!</h1>');
+    // res.write('</body>');
+    // res.write('</html>');
+    // res.write('./index.html');
+    // res.end();
+
 });
 
 server.listen(8080, () => {
