@@ -6,11 +6,20 @@
     <title>basics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
-    <script type="text/javascript" src="http://localhost:8080/script.js"></script>
 </head>
 <body>
+
     <h1>Node basics</h1>
     <button id="button">Go</button>
-    
+    <script>
+        const button = document.querySelectorAll('#button')[0];
+        let xhr = new XMLHttpRequest();
+
+        button.addEventListener('click', () => {
+            xhr.open('GET', 'getroute', true);
+            xhr.send();
+            console.log('event');
+        })
+    </script>
 </body>
 </html>
