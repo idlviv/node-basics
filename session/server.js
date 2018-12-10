@@ -12,7 +12,9 @@ app.use(session({
 }));
 
 app.get('/ses', function(req, res, next) {
+  req.session.message = 'Hello World';
   console.log('req.session', req.session);
+
   res.set('content-type', 'text/json');
   res.status(200).send('ok');
 });
