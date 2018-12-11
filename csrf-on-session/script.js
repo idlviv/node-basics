@@ -2,7 +2,7 @@ const button = document.querySelectorAll('#button')[0];
 const xhr = new XMLHttpRequest();
 
 button.addEventListener('click', () => {
-  xhr.open('get', '/ses', true);
+  xhr.open('get', '/open-session', true);
   xhr.send();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
