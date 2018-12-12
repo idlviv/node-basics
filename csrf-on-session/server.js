@@ -1,15 +1,19 @@
 const express = require('express');
 const app = express();
 const session = require('express-session');
+const csurf = require('csurf');
 
 app.use(express.static('.'));
 
 app.use(session({
+  key: '8060.sid',
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
   // cookie: { secure: true }
 }));
+
+app.use(csurf());
 
 app.get('/open-session', function(req, res, next) {
   req.session.message = 'Hello World';
