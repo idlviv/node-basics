@@ -24,15 +24,22 @@
     <!-- xss -->
 
     <!-- csrf -->
-    <script>
+    <!-- <script>
         var img=document.createElement("img");
         // known url that makes some operations on server
         img.setAttribute('src', 'http://localhost:8060/csrf-send-request-from8080-with-grabbed-session-to8060');
         img.setAttribute('width', 0);
         img.setAttribute('height', 0);
         document.body.appendChild(img);
-    </script>
+    </script> -->
     <!-- csrf -->
+    <form action="http://localhost:8060/entry" method="POST">
+        <div>
+          <label for="message">Enter a message</label>
+          <input id="message" name="message" type="text" />
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
 
 
 

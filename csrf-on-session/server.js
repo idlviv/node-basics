@@ -2,8 +2,14 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const csurf = require('csurf');
+const bodyParser = require('body-parser');
 
 app.use(express.static('.'));
+
+app.use(bodyParser.urlencoded({extended: false}));
+ 
+// parse application/json
+app.use(bodyParser.json());
 
 app.use(session({
   key: '8060.sid',
@@ -33,6 +39,11 @@ app.get(
       res.status(200).send('ok');
     });
 // csrf
+
+app.post('/entry', (req, res) => {
+  console.log(`Message received: ${req.body.message}`);
+  res.send(`Message received: ${req.body.message}`);
+});
 
 app.listen(8060, () => {
   console.log('on port 8060');
